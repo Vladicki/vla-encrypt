@@ -1,26 +1,89 @@
-## About
+# vla-encrypt
 
-Wails template which includes: Vite, React, TS, TailwindCSS out of the box.
+Simple Wails desktop app with Go backend and React frontend.
 
-Build with `Wails CLI v2.0.0`.
+## What you need
 
-To use this [template](https://wails.io/docs/community/templates):
-```shell
-wails init -n "Your Project Name" -t https://github.com/hotafrika/wails-vite-react-ts-tailwind-template
-cd frontend/src
-npm install
+### All platforms
+- Go
+- Node.js + npm
+- Wails CLI
+
+Install Wails CLI:
+
+```bash
+go install github.com/wailsapp/wails/v2/cmd/wails@latest
+wails doctor
 ```
 
-[Here](scripts) you can find useful scripts for building on different platforms and Wails CLI installation.
+## Platform requirements
 
-## Live Development
+### Linux
+Required system packages:
+- gcc build tools
+- GTK3 dev package
+- WebKitGTK dev package
 
-To run in live development mode, run `wails dev` in the project directory. In another terminal, go into the `frontend`
-directory and run `npm run dev`. The frontend dev server will run on http://localhost:34115. Connect to this in your
-browser and connect to your application.
+If your distro uses WebKit 4.1 instead of 4.0, build with the `webkit2_41` tag.
 
-## Building
+### macOS
+Install Xcode Command Line Tools:
 
-To build a redistributable, production mode package, use `wails build`.
+```bash
+xcode-select --install
+```
 
+### Windows
+Required:
+- WebView2 Runtime
+- C/C++ build tools
 
+Run `wails doctor` to confirm setup.
+
+## Install project dependencies
+
+From project root:
+
+```bash
+cd frontend
+npm install
+cd ..
+```
+
+## Run app in development
+
+```bash
+wails dev
+```
+
+## Build app
+
+### Default build
+
+```bash
+wails build
+```
+
+### Linux with WebKit 4.1
+
+```bash
+wails build -tags webkit2_41
+```
+
+## Output
+
+Built app uses the name:
+
+```text
+vla-encrypt
+```
+
+## Included helper scripts
+
+Optional scripts in `scripts/`:
+- `install-wails-cli.sh`
+- `build.sh`
+- `build-windows.sh`
+- `build-macos.sh`
+- `build-macos-arm.sh`
+- `build-macos-intel.sh`
