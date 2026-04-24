@@ -1,0 +1,12 @@
+{
+  "name": "vla-encrypt",
+  "outputfilename": "vla-encrypt",
+  "frontend:install": "npm install",
+  "frontend:build": "npm run build",
+  "frontend:dev:watcher": "npm run dev",
+  "frontend:dev:serverUrl": "auto",
+  "author": {
+    "name": "Vladislav Iurev",
+    "email": "vlad.yurev.06@gmail.com"
+  }
+}
