@@ -6,10 +6,22 @@ export function AppendActivityLog(arg1, arg2, arg3) {
   return window['go']['main']['App']['AppendActivityLog'](arg1, arg2, arg3);
 }
 
+export function DecryptFileInPlace(arg1, arg2) {
+  return window['go']['main']['App']['DecryptFileInPlace'](arg1, arg2);
+}
+
+export function EncryptFileInPlace(arg1, arg2) {
+  return window['go']['main']['App']['EncryptFileInPlace'](arg1, arg2);
+}
+
 export function GetClipboardText() {
   return window['go']['main']['App']['GetClipboardText']();
 }
 
-export function Greet(arg1) {
-  return window['go']['main']['App']['Greet'](arg1);
+export function PickFile() {
+  return window['go']['main']['App']['PickFile']();
+}
+
+export function SetClipboardText(arg1) {
+  return window['go']['main']['App']['SetClipboardText'](arg1);
 }

@@ -62,21 +62,44 @@ wails dev
 
 ```bash
 wails build
-```
 
-### Linux with WebKit 4.1
+# Linux with WebKit 4.1
 
-```bash
 wails build -tags webkit2_41
+
 ```
 
+### For MacOS or Windows 
+
+```
+# Windows script 
+./scripts/build-windows.sh
+
+# Macos script 
+./scripts/build-macos.sh
+
+```
 ## Output
 
-Built app uses the name:
+Built app location will be:
 
 ```text
-vla-encrypt
+
+./build/bin/vla-encrypt
+
 ```
+
+## Testing
+
+Run backend tests from project root:
+
+```bash
+go test ./...
+```
+
+Current automated testing focuses on the Go backend logic that drives encryption, decryption, file format handling, and direct file overwrite behavior. The tests cover successful payload encode/decode round trips, successful AES-GCM encrypt/decrypt round trips, valid envelope parsing, malformed envelope rejection, empty-key rejection for decryption, direct file write behavior, and a temporary-file-backed decrypt-in-place round trip that confirms original plaintext bytes are restored correctly.
+
+Testing performed on the application includes normal and failure-oriented conditions. Normal-path checks verify that encrypted data can be decrypted back to the original content and that encoded metadata survives round trips intact. Failure-path checks verify that malformed encrypted input is rejected and that decryption without a key fails immediately. These tests are intentionally deterministic and do not depend on live external entropy APIs, so they stay simple and reliable while validating the program’s critical backend behavior.
 
 ## Included helper scripts
 
